@@ -25,4 +25,7 @@ void resetStats(int &winner, bool &playagain);
 // ask to play again
 void playAgain(bool &playagain);
 
+// print a separator
+void printDottedLine();
+
 #endif

@@ -56,22 +56,33 @@ void Board::gameloop()
     resetBoard();
     do
     {
+        printDottedLine();
         printBoard();
+        printDottedLine();
         selectPosition(1);
+        printDottedLine();
         printBoard();
+        printDottedLine();
         this->winner = checkWinner(1);
         if (winner)
         {
+            printDottedLine();
             printWinner();
+            printDottedLine();
         }
         else
         {
+            printDottedLine();
             selectPosition(2);
+            printDottedLine();
             this->winner = checkWinner(2);
             if (winner)
             {
+                printDottedLine();
                 printBoard();
+                printDottedLine();
                 printWinner();
+                printDottedLine();
             }
         }
     } while (winner == 0);
@@ -79,7 +90,9 @@ void Board::gameloop()
 // print winner
 void Board::printWinner() const
 {
-    std::cout << "The winner is: player" << winner << std::endl;
+    std::cout << std::endl;
+    std::cout << "The winner is: player" << winner << std::endl
+              << std::endl;
 }
 
 int Board::checkWinner(int player)
@@ -122,6 +135,7 @@ void Board::selectPosition(int player)
 {
     int selection;
     bool pass = false;
+    std::cout << "Player " << player << std::endl;
     std::cout << "Please enter your desired position: ";
     do
     {
@@ -159,4 +173,9 @@ void playAgain(bool &playagain)
             std::cout << "Not valid selection. Please try again: ";
         }
     } while (yesno != 1 && yesno != 0);
+}
+
+void printDottedLine()
+{
+    std::cout << "-----------------------------" << std::endl;
 }
